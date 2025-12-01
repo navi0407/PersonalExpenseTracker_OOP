@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SignInForm));
             panel1 = new Panel();
             btnSignup = new Button();
             label6 = new Label();
             label2 = new Label();
-            pictureBox1 = new PictureBox();
             btnLogin = new Button();
             login_showPass = new CheckBox();
             login_password = new TextBox();
@@ -41,6 +41,7 @@
             label4 = new Label();
             label3 = new Label();
             close = new Label();
+            pictureBox1 = new PictureBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -48,10 +49,10 @@
             // panel1
             // 
             panel1.BackColor = Color.Maroon;
+            panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(btnSignup);
             panel1.Controls.Add(label6);
             panel1.Controls.Add(label2);
-            panel1.Controls.Add(pictureBox1);
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(3, 2, 3, 2);
@@ -70,7 +71,7 @@
             btnSignup.Location = new Point(43, 328);
             btnSignup.Margin = new Padding(3, 2, 3, 2);
             btnSignup.Name = "btnSignup";
-            btnSignup.Size = new Size(253, 33);
+            btnSignup.Size = new Size(253, 44);
             btnSignup.TabIndex = 9;
             btnSignup.Text = "Sign Up";
             btnSignup.UseVisualStyleBackColor = false;
@@ -97,15 +98,6 @@
             label2.Size = new Size(231, 25);
             label2.TabIndex = 1;
             label2.Text = "Personal Expense Tracker";
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Location = new Point(117, 47);
-            pictureBox1.Margin = new Padding(3, 2, 3, 2);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(88, 75);
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
             // 
             // btnLogin
             // 
@@ -195,6 +187,17 @@
             close.Text = "X";
             close.Click += close_Click;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(62, 11);
+            pictureBox1.Margin = new Padding(3, 2, 3, 2);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(198, 120);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 10;
+            pictureBox1.TabStop = false;
+            // 
             // SignInForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -228,7 +231,6 @@
         private Button btnSignup;
         private Label label6;
         private Label label2;
-        private PictureBox pictureBox1;
         private Button btnLogin;
         private CheckBox login_showPass;
         private TextBox login_password;
@@ -237,5 +239,6 @@
         private Label label4;
         private Label label3;
         private Label close;
+        private PictureBox pictureBox1;
     }
 }

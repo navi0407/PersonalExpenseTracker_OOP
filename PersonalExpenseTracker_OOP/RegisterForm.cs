@@ -41,22 +41,22 @@ namespace PersonalExpenseTracker_OOP
             }
             else
             {
-                if(checkConnection())
-                {
-                    try
-                    {
-                        conn.Open();
-                        string selectUsername = "SELECT * FROM users"
-                    }
-                    catch(Exception ex)
-                    {
+                //if(checkConnection())
+                //{
+                //    try
+                //    {
+                //        conn.Open();
+                //        string selectUsername = "SELECT * FROM users"
+                //    }
+                //    catch(Exception ex)
+                //    {
 
-                    }
-                    finally
-                    {
-                        conn.Close();
-                    }
-                }
+                //    }
+                //    finally
+                //    {
+                //        conn.Close();
+                //    }
+                //}
             }
         }
 

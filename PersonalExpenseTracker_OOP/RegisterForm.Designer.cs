@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegisterForm));
             panel1 = new Panel();
             register_loginBtn = new Button();
             label6 = new Label();
@@ -72,7 +73,7 @@
             register_loginBtn.Location = new Point(43, 328);
             register_loginBtn.Margin = new Padding(3, 2, 3, 2);
             register_loginBtn.Name = "register_loginBtn";
-            register_loginBtn.Size = new Size(253, 33);
+            register_loginBtn.Size = new Size(253, 44);
             register_loginBtn.TabIndex = 9;
             register_loginBtn.Text = "Sign In";
             register_loginBtn.UseVisualStyleBackColor = false;
@@ -102,10 +103,12 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Location = new Point(117, 47);
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(61, 11);
             pictureBox1.Margin = new Padding(3, 2, 3, 2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(88, 75);
+            pictureBox1.Size = new Size(198, 120);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
