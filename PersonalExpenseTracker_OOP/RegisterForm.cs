@@ -34,7 +34,30 @@ namespace PersonalExpenseTracker_OOP
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
+            if(register_username.Text == "" || register_password.Text == "" || register_cPassword.Text == "")
+            {
+                MessageBox.Show("Please fill in all fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                
+            }
+            else
+            {
+                if(checkConnection())
+                {
+                    try
+                    {
+                        conn.Open();
+                        string selectUsername = "SELECT * FROM users"
+                    }
+                    catch(Exception ex)
+                    {
 
+                    }
+                    finally
+                    {
+                        conn.Close();
+                    }
+                }
+            }
         }
 
         private void register_showPass_CheckedChanged(object sender, EventArgs e)
