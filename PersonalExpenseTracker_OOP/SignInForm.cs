@@ -33,5 +33,11 @@ namespace PersonalExpenseTracker_OOP
         {
 
         }
+
+        private void login_showPass_CheckedChanged(object sender, EventArgs e)
+        {
+            login_password.PasswordChar = login_showPass.Checked ? '\0' : '•';
+          
+        }
     }
 }
