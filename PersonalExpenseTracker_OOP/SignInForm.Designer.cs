@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SignInForm));
             panel1 = new Panel();
+            pictureBox1 = new PictureBox();
             btnSignup = new Button();
             label6 = new Label();
             label2 = new Label();
@@ -41,7 +42,6 @@
             label4 = new Label();
             label3 = new Label();
             close = new Label();
-            pictureBox1 = new PictureBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -59,6 +59,17 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(325, 383);
             panel1.TabIndex = 9;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(62, 11);
+            pictureBox1.Margin = new Padding(3, 2, 3, 2);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(198, 120);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 10;
+            pictureBox1.TabStop = false;
             // 
             // btnSignup
             // 
@@ -115,6 +126,7 @@
             btnLogin.TabIndex = 17;
             btnLogin.Text = "LOGIN";
             btnLogin.UseVisualStyleBackColor = false;
+            btnLogin.Click += btnLogin_Click;
             // 
             // login_showPass
             // 
@@ -159,7 +171,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(339, 106);
+            label4.Location = new Point(344, 104);
             label4.Name = "label4";
             label4.Size = new Size(74, 19);
             label4.TabIndex = 12;
@@ -186,17 +198,6 @@
             close.TabIndex = 10;
             close.Text = "X";
             close.Click += close_Click;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(62, 11);
-            pictureBox1.Margin = new Padding(3, 2, 3, 2);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(198, 120);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 10;
-            pictureBox1.TabStop = false;
             // 
             // SignInForm
             // 
