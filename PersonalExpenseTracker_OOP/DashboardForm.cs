@@ -60,9 +60,9 @@ namespace PersonalExpenseTracker_OOP
             using (var conn = OpenConn())
             using (var da = new SQLiteDataAdapter(
                 @"SELECT TransactionID, Type, Amount, Date, Description
-                  FROM Transactions
-                  ORDER BY Date DESC
-                  LIMIT 20;", conn))
+                      FROM Transactions
+                      ORDER BY Date DESC
+                      LIMIT 20;", conn))
             {
                 var dt = new DataTable();
                 da.Fill(dt);
@@ -104,5 +104,6 @@ namespace PersonalExpenseTracker_OOP
             var login = new SignInForm();
             login.Show();
         }
+       
     }
 }

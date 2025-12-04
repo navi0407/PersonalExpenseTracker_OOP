@@ -216,7 +216,6 @@
             Name = "IncomeEntryForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "IncomeEntryForm";
-            Load += IncomeEntryForm_Load;
             ((System.ComponentModel.ISupportInitialize)dgvIncome).EndInit();
             ResumeLayout(false);
             PerformLayout();

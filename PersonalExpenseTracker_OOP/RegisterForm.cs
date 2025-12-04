@@ -26,40 +26,20 @@ namespace PersonalExpenseTracker_OOP
             loginForm.Show();
             this.Hide();
         }
-
-        private void RegisterForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            if(register_username.Text == "" || register_password.Text == "" || register_cPassword.Text == "")
+            bool registrationSuccess = true;
+            if (registrationSuccess)
             {
-                MessageBox.Show("Please fill in all fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                
+                this.Hide();
+                var dashboard = new DashboardForm();
+                dashboard.Show();
             }
             else
             {
-                //if (checkConnection())
-                //{
-                //    try
-                //    {
-                //        conn.Open();
-                //        string selectUsername = "SELECT * FROM users"
-                //    }
-                //    catch (Exception ex)
-                //    {
-
-                //    }
-                //    finally
-                //    {
-                //        conn.Close();
-                //    }
-                //}
+                MessageBox.Show("Registration failed. Please try again.");
             }
         }
-
         private void register_showPass_CheckedChanged(object sender, EventArgs e)
         {
             register_password.PasswordChar = register_showPass.Checked ? '\0' : '•';
