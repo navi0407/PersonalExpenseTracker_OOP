@@ -16,5 +16,10 @@ namespace PersonalExpenseTracker_OOP
         {
             InitializeComponent();
         }
+
+        private void ExpenseEntryForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

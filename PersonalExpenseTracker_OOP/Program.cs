@@ -12,6 +12,7 @@ namespace PersonalExpenseTracker_OOP
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new RegisterForm());
+            Application.Run(new SignInForm());
         }
     }
 }

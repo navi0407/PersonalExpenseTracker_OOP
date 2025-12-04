@@ -218,7 +218,6 @@
             Name = "SignInForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "IncomeEntryForm";
-            Load += SignInForm_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

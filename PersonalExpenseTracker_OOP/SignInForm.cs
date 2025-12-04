@@ -28,12 +28,6 @@ namespace PersonalExpenseTracker_OOP
             registerForm.Show();
             this.Hide();
         }
-
-        private void SignInForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void login_showPass_CheckedChanged(object sender, EventArgs e)
         {
             login_password.PasswordChar = login_showPass.Checked ? '\0' : '•';
@@ -42,7 +36,23 @@ namespace PersonalExpenseTracker_OOP
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            string username = login_username.Text;
+            string password = login_password.Text;
 
+            bool isValid = ValidateUser(username, password);
+
+            if (!isValid)
+            {
+                MessageBox.Show("Invalid credentials.");
+                return;
+            }
+            var dash = new DashboardForm();
+            dash.Show();
+            this.Hide();
+        }
+        private bool ValidateUser(string username, string password)
+        {
+            return true;
         }
     }
 }

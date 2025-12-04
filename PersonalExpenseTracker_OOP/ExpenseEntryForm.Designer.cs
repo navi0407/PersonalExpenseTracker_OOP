@@ -32,14 +32,16 @@
             btnDelete = new Button();
             btnUpdate = new Button();
             btnAdd = new Button();
-            dataGridView1 = new DataGridView();
-            dateTimePicker1 = new DateTimePicker();
+            dgvExpense = new DataGridView();
+            dtpDate = new DateTimePicker();
             cmbCategory = new ComboBox();
             lblDescription = new Label();
             lblCategory = new Label();
             lblDate = new Label();
             lblAmount = new Label();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            txtAmount = new TextBox();
+            txtDescription = new TextBox();
+            ((System.ComponentModel.ISupportInitialize)dgvExpense).BeginInit();
             SuspendLayout();
             // 
             // btnClear
@@ -51,9 +53,10 @@
             btnClear.FlatStyle = FlatStyle.Flat;
             btnClear.Font = new Font("Malgun Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnClear.ForeColor = SystemColors.ControlLightLight;
-            btnClear.Location = new Point(494, 421);
+            btnClear.Location = new Point(432, 316);
+            btnClear.Margin = new Padding(3, 2, 3, 2);
             btnClear.Name = "btnClear";
-            btnClear.Size = new Size(95, 35);
+            btnClear.Size = new Size(83, 26);
             btnClear.TabIndex = 35;
             btnClear.Text = "Clear";
             btnClear.UseVisualStyleBackColor = false;
@@ -67,9 +70,10 @@
             btnDelete.FlatStyle = FlatStyle.Flat;
             btnDelete.Font = new Font("Malgun Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnDelete.ForeColor = SystemColors.ControlLightLight;
-            btnDelete.Location = new Point(363, 421);
+            btnDelete.Location = new Point(318, 316);
+            btnDelete.Margin = new Padding(3, 2, 3, 2);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(95, 35);
+            btnDelete.Size = new Size(83, 26);
             btnDelete.TabIndex = 34;
             btnDelete.Text = "Delete";
             btnDelete.UseVisualStyleBackColor = false;
@@ -83,9 +87,10 @@
             btnUpdate.FlatStyle = FlatStyle.Flat;
             btnUpdate.Font = new Font("Malgun Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnUpdate.ForeColor = SystemColors.ControlLightLight;
-            btnUpdate.Location = new Point(237, 421);
+            btnUpdate.Location = new Point(207, 316);
+            btnUpdate.Margin = new Padding(3, 2, 3, 2);
             btnUpdate.Name = "btnUpdate";
-            btnUpdate.Size = new Size(95, 35);
+            btnUpdate.Size = new Size(83, 26);
             btnUpdate.TabIndex = 33;
             btnUpdate.Text = "Update";
             btnUpdate.UseVisualStyleBackColor = false;
@@ -99,44 +104,48 @@
             btnAdd.FlatStyle = FlatStyle.Flat;
             btnAdd.Font = new Font("Malgun Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAdd.ForeColor = SystemColors.ControlLightLight;
-            btnAdd.Location = new Point(110, 421);
+            btnAdd.Location = new Point(96, 316);
+            btnAdd.Margin = new Padding(3, 2, 3, 2);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(95, 35);
+            btnAdd.Size = new Size(83, 26);
             btnAdd.TabIndex = 32;
             btnAdd.Text = "Add";
             btnAdd.UseVisualStyleBackColor = false;
             // 
-            // dataGridView1
+            // dgvExpense
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(314, 12);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(386, 362);
-            dataGridView1.TabIndex = 31;
+            dgvExpense.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvExpense.Location = new Point(275, 9);
+            dgvExpense.Margin = new Padding(3, 2, 3, 2);
+            dgvExpense.Name = "dgvExpense";
+            dgvExpense.RowHeadersWidth = 51;
+            dgvExpense.Size = new Size(338, 272);
+            dgvExpense.TabIndex = 31;
             // 
-            // dateTimePicker1
+            // dtpDate
             // 
-            dateTimePicker1.Location = new Point(38, 324);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(250, 27);
-            dateTimePicker1.TabIndex = 30;
+            dtpDate.Location = new Point(50, 58);
+            dtpDate.Margin = new Padding(3, 2, 3, 2);
+            dtpDate.Name = "dtpDate";
+            dtpDate.Size = new Size(219, 23);
+            dtpDate.TabIndex = 30;
             // 
             // cmbCategory
             // 
             cmbCategory.FormattingEnabled = true;
-            cmbCategory.Location = new Point(42, 256);
+            cmbCategory.Location = new Point(105, 102);
+            cmbCategory.Margin = new Padding(3, 2, 3, 2);
             cmbCategory.Name = "cmbCategory";
-            cmbCategory.Size = new Size(151, 28);
+            cmbCategory.Size = new Size(147, 23);
             cmbCategory.TabIndex = 29;
             // 
             // lblDescription
             // 
             lblDescription.AutoSize = true;
             lblDescription.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblDescription.Location = new Point(42, 205);
+            lblDescription.Location = new Point(24, 154);
             lblDescription.Name = "lblDescription";
-            lblDescription.Size = new Size(100, 23);
+            lblDescription.Size = new Size(81, 19);
             lblDescription.TabIndex = 28;
             lblDescription.Text = "Description:";
             // 
@@ -144,9 +153,9 @@
             // 
             lblCategory.AutoSize = true;
             lblCategory.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblCategory.Location = new Point(42, 136);
+            lblCategory.Location = new Point(37, 102);
             lblCategory.Name = "lblCategory";
-            lblCategory.Size = new Size(83, 23);
+            lblCategory.Size = new Size(68, 19);
             lblCategory.TabIndex = 27;
             lblCategory.Text = "Category:";
             // 
@@ -154,9 +163,9 @@
             // 
             lblDate.AutoSize = true;
             lblDate.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblDate.Location = new Point(42, 78);
+            lblDate.Location = new Point(12, 58);
             lblDate.Name = "lblDate";
-            lblDate.Size = new Size(50, 23);
+            lblDate.Size = new Size(41, 19);
             lblDate.TabIndex = 26;
             lblDate.Text = "Date:";
             // 
@@ -164,32 +173,50 @@
             // 
             lblAmount.AutoSize = true;
             lblAmount.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblAmount.Location = new Point(42, 23);
+            lblAmount.Location = new Point(37, 17);
             lblAmount.Name = "lblAmount";
-            lblAmount.Size = new Size(76, 23);
+            lblAmount.Size = new Size(62, 19);
             lblAmount.TabIndex = 25;
             lblAmount.Text = "Amount:";
             // 
+            // txtAmount
+            // 
+            txtAmount.Location = new Point(105, 17);
+            txtAmount.Name = "txtAmount";
+            txtAmount.Size = new Size(147, 23);
+            txtAmount.TabIndex = 36;
+            // 
+            // txtDescription
+            // 
+            txtDescription.Location = new Point(111, 154);
+            txtDescription.Name = "txtDescription";
+            txtDescription.Size = new Size(147, 23);
+            txtDescription.TabIndex = 37;
+            // 
             // ExpenseEntryForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(712, 511);
+            ClientSize = new Size(623, 383);
+            Controls.Add(txtDescription);
+            Controls.Add(txtAmount);
             Controls.Add(btnClear);
             Controls.Add(btnDelete);
             Controls.Add(btnUpdate);
             Controls.Add(btnAdd);
-            Controls.Add(dataGridView1);
-            Controls.Add(dateTimePicker1);
+            Controls.Add(dgvExpense);
+            Controls.Add(dtpDate);
             Controls.Add(cmbCategory);
             Controls.Add(lblDescription);
             Controls.Add(lblCategory);
             Controls.Add(lblDate);
             Controls.Add(lblAmount);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "ExpenseEntryForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ExpenseEntryForm";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            Load += ExpenseEntryForm_Load;
+            ((System.ComponentModel.ISupportInitialize)dgvExpense).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -200,12 +227,14 @@
         private Button btnDelete;
         private Button btnUpdate;
         private Button btnAdd;
-        private DataGridView dataGridView1;
-        private DateTimePicker dateTimePicker1;
+        private DataGridView dgvExpense;
+        private DateTimePicker dtpDate;
         private ComboBox cmbCategory;
         private Label lblDescription;
         private Label lblCategory;
         private Label lblDate;
         private Label lblAmount;
+        private TextBox txtAmount;
+        private TextBox txtDescription;
     }
 }
