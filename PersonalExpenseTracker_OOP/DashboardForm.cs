@@ -18,6 +18,7 @@ namespace PersonalExpenseTracker_OOP
         public DashboardForm()
         {
             InitializeComponent();
+            EnsureTransactionsTableExists();
         }
         SQLiteConnection OpenConn()
         {
@@ -103,6 +104,21 @@ namespace PersonalExpenseTracker_OOP
             this.Hide();
             var login = new SignInForm();
             login.Show();
+        }
+        void EnsureTransactionsTableExists()
+        {
+            using (var conn = OpenConn())
+            using (var cmd = new SQLiteCommand(
+                @"CREATE TABLE IF NOT EXISTS Transactions (
+                    TransactionID INTEGER PRIMARY KEY AUTOINCREMENT,
+                    Type TEXT NOT NULL,
+                    Amount REAL NOT NULL,
+                    Date TEXT NOT NULL,
+                    Description TEXT
+                );", conn))
+            {
+                cmd.ExecuteNonQuery();
+            }
         }
        
     }
