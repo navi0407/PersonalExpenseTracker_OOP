@@ -59,6 +59,7 @@
             btnClear.TabIndex = 35;
             btnClear.Text = "Clear";
             btnClear.UseVisualStyleBackColor = false;
+            btnClear.Click += btnClear_Click;
             // 
             // btnDelete
             // 
@@ -75,6 +76,7 @@
             btnDelete.TabIndex = 34;
             btnDelete.Text = "Delete";
             btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Click += btnDelete_Click;
             // 
             // btnUpdate
             // 
@@ -91,6 +93,7 @@
             btnUpdate.TabIndex = 33;
             btnUpdate.Text = "Update";
             btnUpdate.UseVisualStyleBackColor = false;
+            btnUpdate.Click += btnUpdate_Click;
             // 
             // btnAdd
             // 
@@ -107,6 +110,7 @@
             btnAdd.TabIndex = 32;
             btnAdd.Text = "Add";
             btnAdd.UseVisualStyleBackColor = false;
+            btnAdd.Click += btnAdd_Click;
             // 
             // dgvExpense
             // 
@@ -116,6 +120,7 @@
             dgvExpense.RowHeadersWidth = 51;
             dgvExpense.Size = new Size(386, 363);
             dgvExpense.TabIndex = 31;
+            dgvExpense.CellClick += dgvExpense_CellClick;
             // 
             // dtpDate
             // 
