@@ -53,10 +53,9 @@
             btnClear.FlatStyle = FlatStyle.Flat;
             btnClear.Font = new Font("Malgun Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnClear.ForeColor = SystemColors.ControlLightLight;
-            btnClear.Location = new Point(432, 316);
-            btnClear.Margin = new Padding(3, 2, 3, 2);
+            btnClear.Location = new Point(494, 421);
             btnClear.Name = "btnClear";
-            btnClear.Size = new Size(83, 26);
+            btnClear.Size = new Size(95, 35);
             btnClear.TabIndex = 35;
             btnClear.Text = "Clear";
             btnClear.UseVisualStyleBackColor = false;
@@ -70,10 +69,9 @@
             btnDelete.FlatStyle = FlatStyle.Flat;
             btnDelete.Font = new Font("Malgun Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnDelete.ForeColor = SystemColors.ControlLightLight;
-            btnDelete.Location = new Point(318, 316);
-            btnDelete.Margin = new Padding(3, 2, 3, 2);
+            btnDelete.Location = new Point(363, 421);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(83, 26);
+            btnDelete.Size = new Size(95, 35);
             btnDelete.TabIndex = 34;
             btnDelete.Text = "Delete";
             btnDelete.UseVisualStyleBackColor = false;
@@ -87,10 +85,9 @@
             btnUpdate.FlatStyle = FlatStyle.Flat;
             btnUpdate.Font = new Font("Malgun Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnUpdate.ForeColor = SystemColors.ControlLightLight;
-            btnUpdate.Location = new Point(207, 316);
-            btnUpdate.Margin = new Padding(3, 2, 3, 2);
+            btnUpdate.Location = new Point(237, 421);
             btnUpdate.Name = "btnUpdate";
-            btnUpdate.Size = new Size(83, 26);
+            btnUpdate.Size = new Size(95, 35);
             btnUpdate.TabIndex = 33;
             btnUpdate.Text = "Update";
             btnUpdate.UseVisualStyleBackColor = false;
@@ -104,10 +101,9 @@
             btnAdd.FlatStyle = FlatStyle.Flat;
             btnAdd.Font = new Font("Malgun Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAdd.ForeColor = SystemColors.ControlLightLight;
-            btnAdd.Location = new Point(96, 316);
-            btnAdd.Margin = new Padding(3, 2, 3, 2);
+            btnAdd.Location = new Point(110, 421);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(83, 26);
+            btnAdd.Size = new Size(95, 35);
             btnAdd.TabIndex = 32;
             btnAdd.Text = "Add";
             btnAdd.UseVisualStyleBackColor = false;
@@ -115,37 +111,34 @@
             // dgvExpense
             // 
             dgvExpense.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvExpense.Location = new Point(275, 9);
-            dgvExpense.Margin = new Padding(3, 2, 3, 2);
+            dgvExpense.Location = new Point(314, 12);
             dgvExpense.Name = "dgvExpense";
             dgvExpense.RowHeadersWidth = 51;
-            dgvExpense.Size = new Size(338, 272);
+            dgvExpense.Size = new Size(386, 363);
             dgvExpense.TabIndex = 31;
             // 
             // dtpDate
             // 
-            dtpDate.Location = new Point(50, 58);
-            dtpDate.Margin = new Padding(3, 2, 3, 2);
+            dtpDate.Location = new Point(57, 77);
             dtpDate.Name = "dtpDate";
-            dtpDate.Size = new Size(219, 23);
+            dtpDate.Size = new Size(250, 27);
             dtpDate.TabIndex = 30;
             // 
             // cmbCategory
             // 
             cmbCategory.FormattingEnabled = true;
-            cmbCategory.Location = new Point(105, 102);
-            cmbCategory.Margin = new Padding(3, 2, 3, 2);
+            cmbCategory.Location = new Point(120, 136);
             cmbCategory.Name = "cmbCategory";
-            cmbCategory.Size = new Size(147, 23);
+            cmbCategory.Size = new Size(167, 28);
             cmbCategory.TabIndex = 29;
             // 
             // lblDescription
             // 
             lblDescription.AutoSize = true;
             lblDescription.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblDescription.Location = new Point(24, 154);
+            lblDescription.Location = new Point(27, 205);
             lblDescription.Name = "lblDescription";
-            lblDescription.Size = new Size(81, 19);
+            lblDescription.Size = new Size(100, 23);
             lblDescription.TabIndex = 28;
             lblDescription.Text = "Description:";
             // 
@@ -153,9 +146,9 @@
             // 
             lblCategory.AutoSize = true;
             lblCategory.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblCategory.Location = new Point(37, 102);
+            lblCategory.Location = new Point(42, 136);
             lblCategory.Name = "lblCategory";
-            lblCategory.Size = new Size(68, 19);
+            lblCategory.Size = new Size(83, 23);
             lblCategory.TabIndex = 27;
             lblCategory.Text = "Category:";
             // 
@@ -163,9 +156,9 @@
             // 
             lblDate.AutoSize = true;
             lblDate.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblDate.Location = new Point(12, 58);
+            lblDate.Location = new Point(12, 77);
             lblDate.Name = "lblDate";
-            lblDate.Size = new Size(41, 19);
+            lblDate.Size = new Size(50, 23);
             lblDate.TabIndex = 26;
             lblDate.Text = "Date:";
             // 
@@ -173,31 +166,33 @@
             // 
             lblAmount.AutoSize = true;
             lblAmount.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblAmount.Location = new Point(37, 17);
+            lblAmount.Location = new Point(42, 23);
             lblAmount.Name = "lblAmount";
-            lblAmount.Size = new Size(62, 19);
+            lblAmount.Size = new Size(76, 23);
             lblAmount.TabIndex = 25;
             lblAmount.Text = "Amount:";
             // 
             // txtAmount
             // 
-            txtAmount.Location = new Point(105, 17);
+            txtAmount.Location = new Point(120, 23);
+            txtAmount.Margin = new Padding(3, 4, 3, 4);
             txtAmount.Name = "txtAmount";
-            txtAmount.Size = new Size(147, 23);
+            txtAmount.Size = new Size(167, 27);
             txtAmount.TabIndex = 36;
             // 
             // txtDescription
             // 
-            txtDescription.Location = new Point(111, 154);
+            txtDescription.Location = new Point(127, 205);
+            txtDescription.Margin = new Padding(3, 4, 3, 4);
             txtDescription.Name = "txtDescription";
-            txtDescription.Size = new Size(147, 23);
+            txtDescription.Size = new Size(167, 27);
             txtDescription.TabIndex = 37;
             // 
             // ExpenseEntryForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(623, 383);
+            ClientSize = new Size(712, 511);
             Controls.Add(txtDescription);
             Controls.Add(txtAmount);
             Controls.Add(btnClear);
@@ -211,7 +206,6 @@
             Controls.Add(lblCategory);
             Controls.Add(lblDate);
             Controls.Add(lblAmount);
-            Margin = new Padding(3, 2, 3, 2);
             Name = "ExpenseEntryForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ExpenseEntryForm";
