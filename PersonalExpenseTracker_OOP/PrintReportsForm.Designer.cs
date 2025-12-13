@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrintReportsForm));
             lblBalance = new Label();
             label1 = new Label();
             label2 = new Label();
@@ -36,15 +37,17 @@
             button1 = new Button();
             button2 = new Button();
             printDocument1 = new System.Drawing.Printing.PrintDocument();
+            pictureBox6 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             SuspendLayout();
             // 
             // lblBalance
             // 
             lblBalance.AutoSize = true;
             lblBalance.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblBalance.Location = new Point(49, 45);
+            lblBalance.Location = new Point(48, 72);
             lblBalance.Name = "lblBalance";
-            lblBalance.Size = new Size(125, 31);
+            lblBalance.Size = new Size(103, 25);
             lblBalance.TabIndex = 15;
             lblBalance.Text = "From Date:";
             // 
@@ -52,9 +55,9 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(49, 103);
+            label1.Location = new Point(48, 115);
             label1.Name = "label1";
-            label1.Size = new Size(96, 31);
+            label1.Size = new Size(79, 25);
             label1.TabIndex = 16;
             label1.Text = "To Date:";
             // 
@@ -62,18 +65,19 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(49, 169);
+            label2.Location = new Point(48, 165);
             label2.Name = "label2";
-            label2.Size = new Size(111, 31);
+            label2.Size = new Size(92, 25);
             label2.TabIndex = 17;
             label2.Text = "Category:";
             // 
             // dateTimePicker1
             // 
             dateTimePicker1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dateTimePicker1.Location = new Point(49, 229);
+            dateTimePicker1.Location = new Point(48, 210);
+            dateTimePicker1.Margin = new Padding(3, 2, 3, 2);
             dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(358, 34);
+            dateTimePicker1.Size = new Size(314, 29);
             dateTimePicker1.TabIndex = 18;
             // 
             // btnAdd
@@ -85,9 +89,10 @@
             btnAdd.FlatStyle = FlatStyle.Flat;
             btnAdd.Font = new Font("Malgun Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAdd.ForeColor = SystemColors.ControlLightLight;
-            btnAdd.Location = new Point(69, 288);
+            btnAdd.Location = new Point(65, 254);
+            btnAdd.Margin = new Padding(3, 2, 3, 2);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(140, 35);
+            btnAdd.Size = new Size(122, 26);
             btnAdd.TabIndex = 34;
             btnAdd.Text = "Generate report";
             btnAdd.UseVisualStyleBackColor = false;
@@ -101,9 +106,10 @@
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Malgun Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = SystemColors.ControlLightLight;
-            button1.Location = new Point(477, 288);
+            button1.Location = new Point(422, 254);
+            button1.Margin = new Padding(3, 2, 3, 2);
             button1.Name = "button1";
-            button1.Size = new Size(140, 35);
+            button1.Size = new Size(122, 26);
             button1.TabIndex = 35;
             button1.Text = "Print review";
             button1.UseVisualStyleBackColor = false;
@@ -117,18 +123,30 @@
             button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("Malgun Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button2.ForeColor = SystemColors.ControlLightLight;
-            button2.Location = new Point(267, 288);
+            button2.Location = new Point(239, 254);
+            button2.Margin = new Padding(3, 2, 3, 2);
             button2.Name = "button2";
-            button2.Size = new Size(140, 35);
+            button2.Size = new Size(122, 26);
             button2.TabIndex = 36;
             button2.Text = "Print";
             button2.UseVisualStyleBackColor = false;
             // 
+            // pictureBox6
+            // 
+            pictureBox6.BackColor = Color.White;
+            pictureBox6.BackgroundImage = (Image)resources.GetObject("pictureBox6.BackgroundImage");
+            pictureBox6.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox6.Location = new Point(-42, -7);
+            pictureBox6.Name = "pictureBox6";
+            pictureBox6.Size = new Size(737, 396);
+            pictureBox6.TabIndex = 45;
+            pictureBox6.TabStop = false;
+            // 
             // PrintReportsForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(712, 511);
+            ClientSize = new Size(623, 383);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(btnAdd);
@@ -136,9 +154,12 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(lblBalance);
+            Controls.Add(pictureBox6);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "PrintReportsForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "PrintReportsForm";
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -153,5 +174,6 @@
         private Button button1;
         private Button button2;
         private System.Drawing.Printing.PrintDocument printDocument1;
+        private PictureBox pictureBox6;
     }
 }

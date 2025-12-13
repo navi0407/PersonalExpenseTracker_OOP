@@ -120,6 +120,15 @@ namespace PersonalExpenseTracker_OOP
                 cmd.ExecuteNonQuery();
             }
         }
-       
+
+        private void lblBalance_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblTotalIncome_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -30,10 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SignInForm));
             panel1 = new Panel();
+            label2 = new Label();
             pictureBox1 = new PictureBox();
             btnSignup = new Button();
             label6 = new Label();
-            label2 = new Label();
             btnLogin = new Button();
             login_showPass = new CheckBox();
             login_password = new TextBox();
@@ -42,17 +42,19 @@
             label4 = new Label();
             label3 = new Label();
             close = new Label();
+            pictureBox6 = new PictureBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.Maroon;
+            panel1.Controls.Add(label2);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(btnSignup);
             panel1.Controls.Add(label6);
-            panel1.Controls.Add(label2);
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(3, 2, 3, 2);
@@ -60,13 +62,25 @@
             panel1.Size = new Size(325, 383);
             panel1.TabIndex = 9;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Malgun Gothic", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.ForeColor = SystemColors.ControlLightLight;
+            label2.Location = new Point(34, 176);
+            label2.Name = "label2";
+            label2.Size = new Size(272, 25);
+            label2.TabIndex = 1;
+            label2.Text = "Most Trusted Expense Tracker";
+            label2.Click += label2_Click;
+            // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(62, 11);
+            pictureBox1.Location = new Point(-3, 2);
             pictureBox1.Margin = new Padding(3, 2, 3, 2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(198, 120);
+            pictureBox1.Size = new Size(325, 213);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 10;
             pictureBox1.TabStop = false;
@@ -98,17 +112,6 @@
             label6.Size = new Size(82, 25);
             label6.TabIndex = 2;
             label6.Text = "Register";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Malgun Gothic", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.ForeColor = SystemColors.ControlLightLight;
-            label2.Location = new Point(43, 133);
-            label2.Name = "label2";
-            label2.Size = new Size(231, 25);
-            label2.TabIndex = 1;
-            label2.Text = "Personal Expense Tracker";
             // 
             // btnLogin
             // 
@@ -199,6 +202,17 @@
             close.Text = "X";
             close.Click += close_Click;
             // 
+            // pictureBox6
+            // 
+            pictureBox6.BackColor = Color.White;
+            pictureBox6.BackgroundImage = (Image)resources.GetObject("pictureBox6.BackgroundImage");
+            pictureBox6.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox6.Location = new Point(-42, 0);
+            pictureBox6.Name = "pictureBox6";
+            pictureBox6.Size = new Size(731, 383);
+            pictureBox6.TabIndex = 45;
+            pictureBox6.TabStop = false;
+            // 
             // SignInForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -214,6 +228,7 @@
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(close);
+            Controls.Add(pictureBox6);
             Margin = new Padding(3, 2, 3, 2);
             Name = "SignInForm";
             StartPosition = FormStartPosition.CenterScreen;
@@ -221,6 +236,7 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -240,5 +256,6 @@
         private Label label3;
         private Label close;
         private PictureBox pictureBox1;
+        private PictureBox pictureBox6;
     }
 }

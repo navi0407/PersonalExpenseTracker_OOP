@@ -30,9 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegisterForm));
             panel1 = new Panel();
+            label7 = new Label();
             register_loginBtn = new Button();
             label6 = new Label();
-            label2 = new Label();
             pictureBox1 = new PictureBox();
             close = new Label();
             label3 = new Label();
@@ -44,16 +44,18 @@
             btnRegister = new Button();
             label1 = new Label();
             register_cPassword = new TextBox();
+            pictureBox6 = new PictureBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.Maroon;
+            panel1.Controls.Add(label7);
             panel1.Controls.Add(register_loginBtn);
             panel1.Controls.Add(label6);
-            panel1.Controls.Add(label2);
             panel1.Controls.Add(pictureBox1);
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
@@ -61,6 +63,17 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(325, 383);
             panel1.TabIndex = 0;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Malgun Gothic", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label7.ForeColor = SystemColors.ControlLightLight;
+            label7.Location = new Point(34, 170);
+            label7.Name = "label7";
+            label7.Size = new Size(272, 25);
+            label7.TabIndex = 10;
+            label7.Text = "Most Trusted Expense Tracker";
             // 
             // register_loginBtn
             // 
@@ -90,24 +103,13 @@
             label6.TabIndex = 2;
             label6.Text = "Sign In Here";
             // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Malgun Gothic", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.ForeColor = SystemColors.ControlLightLight;
-            label2.Location = new Point(43, 133);
-            label2.Name = "label2";
-            label2.Size = new Size(231, 25);
-            label2.TabIndex = 1;
-            label2.Text = "Personal Expense Tracker";
-            // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(61, 11);
+            pictureBox1.Location = new Point(0, 2);
             pictureBox1.Margin = new Padding(3, 2, 3, 2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(198, 120);
+            pictureBox1.Size = new Size(322, 215);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -220,6 +222,17 @@
             register_cPassword.Size = new Size(266, 23);
             register_cPassword.TabIndex = 10;
             // 
+            // pictureBox6
+            // 
+            pictureBox6.BackColor = Color.White;
+            pictureBox6.BackgroundImage = (Image)resources.GetObject("pictureBox6.BackgroundImage");
+            pictureBox6.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox6.Location = new Point(-42, 0);
+            pictureBox6.Name = "pictureBox6";
+            pictureBox6.Size = new Size(732, 383);
+            pictureBox6.TabIndex = 45;
+            pictureBox6.TabStop = false;
+            // 
             // RegisterForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -237,6 +250,7 @@
             Controls.Add(label3);
             Controls.Add(close);
             Controls.Add(panel1);
+            Controls.Add(pictureBox6);
             Margin = new Padding(3, 2, 3, 2);
             Name = "RegisterForm";
             StartPosition = FormStartPosition.CenterScreen;
@@ -244,6 +258,7 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -251,7 +266,6 @@
         #endregion
 
         private Panel panel1;
-        private Label label2;
         private PictureBox pictureBox1;
         private Label close;
         private Label label3;
@@ -265,5 +279,7 @@
         private Label label6;
         private Label label1;
         private TextBox register_cPassword;
+        private Label label7;
+        private PictureBox pictureBox6;
     }
 }
