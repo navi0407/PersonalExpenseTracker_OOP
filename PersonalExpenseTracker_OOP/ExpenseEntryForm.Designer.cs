@@ -121,6 +121,7 @@
             dgvExpense.Size = new Size(386, 363);
             dgvExpense.TabIndex = 31;
             dgvExpense.CellClick += dgvExpense_CellClick;
+            dgvExpense.CellContentClick += dgvExpense_CellContentClick;
             // 
             // dtpDate
             // 
@@ -184,6 +185,7 @@
             txtAmount.Name = "txtAmount";
             txtAmount.Size = new Size(167, 27);
             txtAmount.TabIndex = 36;
+            txtAmount.TextChanged += txtAmount_TextChanged;
             // 
             // txtDescription
             // 
