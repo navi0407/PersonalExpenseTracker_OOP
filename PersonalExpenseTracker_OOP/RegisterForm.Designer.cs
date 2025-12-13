@@ -129,6 +129,7 @@
             // label3
             // 
             label3.AutoSize = true;
+            label3.BackColor = Color.Transparent;
             label3.Font = new Font("Malgun Gothic", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.Location = new Point(346, 47);
             label3.Name = "label3";
@@ -139,6 +140,7 @@
             // label4
             // 
             label4.AutoSize = true;
+            label4.BackColor = Color.Transparent;
             label4.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.Location = new Point(346, 104);
             label4.Name = "label4";
@@ -149,8 +151,9 @@
             // label5
             // 
             label5.AutoSize = true;
+            label5.BackColor = Color.Transparent;
             label5.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(346, 157);
+            label5.Location = new Point(346, 155);
             label5.Name = "label5";
             label5.Size = new Size(70, 19);
             label5.TabIndex = 4;
@@ -176,13 +179,14 @@
             // register_showPass
             // 
             register_showPass.AutoSize = true;
+            register_showPass.BackColor = Color.Transparent;
             register_showPass.Location = new Point(492, 255);
             register_showPass.Margin = new Padding(3, 2, 3, 2);
             register_showPass.Name = "register_showPass";
             register_showPass.Size = new Size(108, 19);
             register_showPass.TabIndex = 7;
             register_showPass.Text = "Show Password";
-            register_showPass.UseVisualStyleBackColor = true;
+            register_showPass.UseVisualStyleBackColor = false;
             register_showPass.CheckedChanged += register_showPass_CheckedChanged;
             // 
             // btnRegister
@@ -206,6 +210,7 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
             label1.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.Location = new Point(346, 208);
             label1.Name = "label1";
