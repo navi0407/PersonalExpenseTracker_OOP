@@ -18,7 +18,7 @@ namespace PersonalExpenseTracker_OOP
         public DashboardForm()
         {
             InitializeComponent();
-            EnsureTransactionsTableExists();
+            //EnsureTransactionsTableExists();
         }
         SQLiteConnection OpenConn()
         {
@@ -73,30 +73,38 @@ namespace PersonalExpenseTracker_OOP
 
         private void btnIncome_Click(object sender, EventArgs e)
         {
-            var f = new IncomeEntryForm();
-            f.ShowDialog();
+            using (var f = new IncomeEntryForm())
+            {
+                f.ShowDialog();
+            }
             LoadTotals();
             LoadRecentTransactions();
         }
 
         private void btnExpense_Click(object sender, EventArgs e)
         {
-            var f = new ExpenseEntryForm();
-            f.ShowDialog();
+            using (var f = new ExpenseEntryForm())
+            {
+                f.ShowDialog();
+            }
             LoadTotals();
             LoadRecentTransactions();
         }
 
         private void btnCategories_Click(object sender, EventArgs e)
         {
-            var f = new CategoriesForm();
-            f.ShowDialog();
+            using (var f = new CategoriesForm())
+            {
+                f.ShowDialog();
+            }
         }
 
         private void btnReports_Click(object sender, EventArgs e)
         {
-            var f = new PrintReportsForm();
-            f.ShowDialog();
+            using (var f = new PrintReportsForm())
+            {
+                f.ShowDialog();
+            }
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -105,21 +113,21 @@ namespace PersonalExpenseTracker_OOP
             var login = new SignInForm();
             login.Show();
         }
-        void EnsureTransactionsTableExists()
-        {
-            using (var conn = OpenConn())
-            using (var cmd = new SQLiteCommand(
-                @"CREATE TABLE IF NOT EXISTS Transactions (
-                    TransactionID INTEGER PRIMARY KEY AUTOINCREMENT,
-                    Type TEXT NOT NULL,
-                    Amount REAL NOT NULL,
-                    Date TEXT NOT NULL,
-                    Description TEXT
-                );", conn))
-            {
-                cmd.ExecuteNonQuery();
-            }
-        }
+        //void EnsureTransactionsTableExists()
+        //{
+        //    using (var conn = OpenConn())
+        //    using (var cmd = new SQLiteCommand(
+        //        @"CREATE TABLE IF NOT EXISTS Transactions (
+        //            TransactionID INTEGER PRIMARY KEY AUTOINCREMENT,
+        //            Type TEXT NOT NULL,
+        //            Amount REAL NOT NULL,
+        //            Date TEXT NOT NULL,
+        //            Description TEXT
+        //        );", conn))
+        //    {
+        //        cmd.ExecuteNonQuery();
+        //    }
+        //}
        
     }
 }
