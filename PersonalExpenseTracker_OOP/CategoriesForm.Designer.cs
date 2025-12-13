@@ -32,12 +32,12 @@
             label1 = new Label();
             textCName = new TextBox();
             cmbType = new ComboBox();
-            dataGridView1 = new DataGridView();
+            dgvCategories = new DataGridView();
             btnAdd = new Button();
             btnUpdate = new Button();
             btnDelete = new Button();
             btnClear = new Button();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvCategories).BeginInit();
             SuspendLayout();
             // 
             // lblBalance
@@ -75,14 +75,15 @@
             cmbType.Size = new Size(318, 28);
             cmbType.TabIndex = 17;
             // 
-            // dataGridView1
+            // dgvCategories
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(262, 142);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(416, 333);
-            dataGridView1.TabIndex = 18;
+            dgvCategories.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvCategories.Location = new Point(262, 142);
+            dgvCategories.Name = "dgvCategories";
+            dgvCategories.RowHeadersWidth = 51;
+            dgvCategories.Size = new Size(416, 333);
+            dgvCategories.TabIndex = 18;
+            dgvCategories.CellClick += dgvCategories_CellClick;
             // 
             // btnAdd
             // 
@@ -99,6 +100,7 @@
             btnAdd.TabIndex = 33;
             btnAdd.Text = "Add";
             btnAdd.UseVisualStyleBackColor = false;
+            btnAdd.Click += btnAdd_Click;
             // 
             // btnUpdate
             // 
@@ -115,6 +117,7 @@
             btnUpdate.TabIndex = 34;
             btnUpdate.Text = "Update";
             btnUpdate.UseVisualStyleBackColor = false;
+            btnUpdate.Click += btnUpdate_Click;
             // 
             // btnDelete
             // 
@@ -131,6 +134,7 @@
             btnDelete.TabIndex = 35;
             btnDelete.Text = "Delete";
             btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Click += btnDelete_Click;
             // 
             // btnClear
             // 
@@ -147,6 +151,7 @@
             btnClear.TabIndex = 36;
             btnClear.Text = "Clear";
             btnClear.UseVisualStyleBackColor = false;
+            btnClear.Click += btnClear_Click;
             // 
             // CategoriesForm
             // 
@@ -157,7 +162,7 @@
             Controls.Add(btnDelete);
             Controls.Add(btnUpdate);
             Controls.Add(btnAdd);
-            Controls.Add(dataGridView1);
+            Controls.Add(dgvCategories);
             Controls.Add(cmbType);
             Controls.Add(textCName);
             Controls.Add(label1);
@@ -165,7 +170,8 @@
             Name = "CategoriesForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CategoriesForm";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            Load += CategoriesForm_Load;
+            ((System.ComponentModel.ISupportInitialize)dgvCategories).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -176,7 +182,7 @@
         private Label label1;
         private TextBox textCName;
         private ComboBox cmbType;
-        private DataGridView dataGridView1;
+        private DataGridView dgvCategories;
         private Button btnAdd;
         private Button btnUpdate;
         private Button btnDelete;

@@ -153,5 +153,15 @@ namespace PersonalExpenseTracker_OOP
             cmbCategory.Text = row.Cells["Category"].Value.ToString();
             txtDescription.Text = row.Cells["Description"].Value.ToString();
         }
+
+        private void txtAmount_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvExpense_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

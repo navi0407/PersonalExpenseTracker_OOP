@@ -18,7 +18,7 @@ namespace PersonalExpenseTracker_OOP
         public DashboardForm()
         {
             InitializeComponent();
-            EnsureTransactionsTableExists();
+            //EnsureTransactionsTableExists();
         }
         SQLiteConnection OpenConn()
         {
@@ -73,30 +73,38 @@ namespace PersonalExpenseTracker_OOP
 
         private void btnIncome_Click(object sender, EventArgs e)
         {
-            var f = new IncomeEntryForm();
-            f.ShowDialog();
+            using (var f = new IncomeEntryForm())
+            {
+                f.ShowDialog();
+            }
             LoadTotals();
             LoadRecentTransactions();
         }
 
         private void btnExpense_Click(object sender, EventArgs e)
         {
-            var f = new ExpenseEntryForm();
-            f.ShowDialog();
+            using (var f = new ExpenseEntryForm())
+            {
+                f.ShowDialog();
+            }
             LoadTotals();
             LoadRecentTransactions();
         }
 
         private void btnCategories_Click(object sender, EventArgs e)
         {
-            var f = new CategoriesForm();
-            f.ShowDialog();
+            using (var f = new CategoriesForm())
+            {
+                f.ShowDialog();
+            }
         }
 
         private void btnReports_Click(object sender, EventArgs e)
         {
-            var f = new PrintReportsForm();
-            f.ShowDialog();
+            using (var f = new PrintReportsForm())
+            {
+                f.ShowDialog();
+            }
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -120,15 +128,6 @@ namespace PersonalExpenseTracker_OOP
                 cmd.ExecuteNonQuery();
             }
         }
-
-        private void lblBalance_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblTotalIncome_Click(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }
