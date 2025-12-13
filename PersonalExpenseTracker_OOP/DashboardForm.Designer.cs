@@ -65,7 +65,7 @@
             lblBalance.Size = new Size(89, 19);
             lblBalance.TabIndex = 13;
             lblBalance.Text = "Their balance";
-            lblBalance.Click += lblBalance_Click;
+            //lblBalance.Click += lblBalance_Click;
             // 
             // lblTotalExpense
             // 
@@ -86,7 +86,7 @@
             lblTotalIncome.Size = new Size(117, 19);
             lblTotalIncome.TabIndex = 15;
             lblTotalIncome.Text = "their total income";
-            lblTotalIncome.Click += lblTotalIncome_Click;
+            //lblTotalIncome.Click += lblTotalIncome_Click;
             // 
             // dgvRecent
             // 
