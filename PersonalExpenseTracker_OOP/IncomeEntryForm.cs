@@ -23,11 +23,11 @@ namespace PersonalExpenseTracker_OOP
         }
         private void IncomeEntryForm_Load(object sender, EventArgs e)
         {
-            CreateTable();
-            LoadCategories();
-            LoadData();
+            CreateTable();// Make sure the Income table exists in the database
+            LoadCategories(); // Fill the category dropdown with options
+            LoadData();// Load existing income records into the DataGridView
         }
-        private void CreateTable()
+        private void CreateTable() // Creates the Income table if it does not already exist
         {
             using (var conn = new SQLiteConnection(cs))
             {
@@ -54,16 +54,16 @@ namespace PersonalExpenseTracker_OOP
             cmbCategory.Items.Add("Overtime Pay");
 
         }
-        private void LoadData()
+        private void LoadData()// Loads all Income records from the database into the DataGridView
         {
             using (var conn = new SQLiteConnection(cs))
             {
                 conn.Open();
                 using (var adapter = new SQLiteDataAdapter("SELECT * FROM Income", conn))
                 {
-                    var dt = new DataTable();
-                    adapter.Fill(dt);
-                    dgvIncome.DataSource = dt;
+                    var dt = new DataTable();//gumagawa ng tables at rows
+                    adapter.Fill(dt);// pupuno ang table ng data galing sa database
+                    dgvIncome.DataSource = dt;// Ibinibind ang DataTable sa DataGridView para ipakita ang data
                 }
             }
         }
@@ -90,7 +90,7 @@ namespace PersonalExpenseTracker_OOP
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (dgvIncome.CurrentRow == null)
+            if (dgvIncome.CurrentRow == null)//kapag walang napili sa datagridview, walang gagawin
                 return;
             int id = Convert.ToInt32(dgvIncome.CurrentRow.Cells["Id"].Value);
             using (var conn = new SQLiteConnection(cs))
@@ -107,8 +107,8 @@ namespace PersonalExpenseTracker_OOP
                     cmd.ExecuteNonQuery();
                 }
             }
-            LoadData();
-            ClearFields();
+            LoadData();//nire-refresh ang datagridview
+            ClearFields();//nililinis ang input fields
         }
 
         private void btnDelete_Click(object sender, EventArgs e)

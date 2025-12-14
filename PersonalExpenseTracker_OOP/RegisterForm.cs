@@ -4,7 +4,7 @@ namespace PersonalExpenseTracker_OOP
 {
     public partial class RegisterForm : Form
     {
-        SQLiteConnection conn = new SQLiteConnection("Data Source=personal_expense_tracker.db;Version=3;");
+        SQLiteConnection conn = new SQLiteConnection(@"Data Source=BudgetTracker.db;");
         public RegisterForm()
         {
             InitializeComponent();

@@ -53,17 +53,6 @@ namespace PersonalExpenseTracker_OOP
                 var dashboard = new DashboardForm();
                 dashboard.Show();
                 this.Hide();
-
-                //bool isValid = ValidateUser(username, password);
-
-                //if (!isValid)
-                //{
-                //    MessageBox.Show("Invalid credentials.");
-                //    return;
-                //}
-                //var dash = new DashboardForm();
-                //dash.Show();
-                //this.Hide();
             }
             catch (Exception ex)
             {
