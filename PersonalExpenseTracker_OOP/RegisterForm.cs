@@ -9,12 +9,6 @@ namespace PersonalExpenseTracker_OOP
         {
             InitializeComponent();
         }
-
-        //public bool checkConnection()
-        //{
-        //    //return (conn.State == ConnectionState.Closed) ? true : false;
-        //}
-
         private void close_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -28,16 +22,29 @@ namespace PersonalExpenseTracker_OOP
         }
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            bool registrationSuccess = true;
-            if (registrationSuccess)
+            try
             {
-                this.Hide();
+                string usernaname = register_username.Text;
+                string password = register_password.Text;
+                string cPassword = register_cPassword.Text;
+
+                if(string.IsNullOrWhiteSpace(usernaname) || string.IsNullOrWhiteSpace(password) || string.IsNullOrWhiteSpace(cPassword))
+                {
+                    MessageBox.Show("Please fill in all fields.");
+                    return;
+                }
+                if(password != cPassword)
+                {
+                    MessageBox.Show("Passwords do not match.");
+                    return;
+                }
                 var dashboard = new DashboardForm();
                 dashboard.Show();
+                this.Hide();
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Registration failed. Please try again.");
+                MessageBox.Show("An error occurred: " + ex.Message);
             }
         }
         private void register_showPass_CheckedChanged(object sender, EventArgs e)
@@ -45,5 +52,6 @@ namespace PersonalExpenseTracker_OOP
             register_password.PasswordChar = register_showPass.Checked ? '\0' : '•';
             register_cPassword.PasswordChar = register_showPass.Checked ? '\0' : '•';
         }
+
     }
 }

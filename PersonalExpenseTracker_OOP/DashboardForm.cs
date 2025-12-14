@@ -18,7 +18,7 @@ namespace PersonalExpenseTracker_OOP
         public DashboardForm()
         {
             InitializeComponent();
-            //EnsureTransactionsTableExists();
+
         }
         SQLiteConnection OpenConn()
         {
@@ -28,8 +28,10 @@ namespace PersonalExpenseTracker_OOP
         }
         private void DashboardForm_Load(object sender, EventArgs e)
         {
+            EnsureTransactionsTableExists();
             LoadTotals();
             LoadRecentTransactions();
+            //LoadCurrentEntries();
         }
         void LoadTotals()
         {
@@ -70,6 +72,32 @@ namespace PersonalExpenseTracker_OOP
                 dgvRecent.DataSource = dt;
             }
         }
+        //void LoadCurrentEntries()
+        //decimal GetLatestAmount(string type)
+        //{
+        //    using (var conn = OpenConn())
+        //    {
+        //        using (var cmd = new SQLiteCommand(
+        //         @"SELECT Amount
+        //            FROM Transactions
+        //            WHERE Type = @type
+        //            ORDER BY Date DESC, TransactionID DESC
+        //            LIMIT 1;", conn))
+        //        {
+        //            cmd.Parameters.AddWithValue("@type", type);
+        //            object result = cmd.ExecuteScalar();
+        //            return (result == null || result == DBNull.Value)  ? 0m : Convert.ToDecimal(result);
+
+        //        }
+        //    }
+        //}
+        //    void LoadCurrentEntries()
+        //    {
+        //        decimal currentIncome = GetLatestAmount("Income");
+        //        decimal currentExpense = GetLatestAmount("Expense");
+        //        lblTotalExpense.Text = currentExpense.ToString("N2");
+        //        lblTotalIncome.Text = currentIncome.ToString("N2");
+        //    }
 
         private void btnIncome_Click(object sender, EventArgs e)
         {
@@ -79,6 +107,7 @@ namespace PersonalExpenseTracker_OOP
             }
             LoadTotals();
             LoadRecentTransactions();
+            //LoadCurrentEntries();
         }
 
         private void btnExpense_Click(object sender, EventArgs e)
@@ -89,6 +118,7 @@ namespace PersonalExpenseTracker_OOP
             }
             LoadTotals();
             LoadRecentTransactions();
+            //LoadCurrentEntries();
         }
 
         private void btnCategories_Click(object sender, EventArgs e)
@@ -128,6 +158,6 @@ namespace PersonalExpenseTracker_OOP
                 cmd.ExecuteNonQuery();
             }
         }
-       
+
     }
 }

@@ -36,28 +36,43 @@ namespace PersonalExpenseTracker_OOP
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string username = login_username.Text;
-            string password = login_password.Text;
-
-            bool isValid = ValidateUser(username, password);
-
-            if (!isValid)
+            try
             {
-                MessageBox.Show("Invalid credentials.");
-                return;
+                string username = login_username.Text;
+                string password = login_password.Text;
+                if(string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
+                {
+                    MessageBox.Show("Please enter both username and password.");
+                    return;
+                }
+                bool isValid = ValidateUser(username, password);
+                if(!isValid)
+                {
+                    MessageBox.Show("Invalid username or password.");
+                }
+                var dashboard = new DashboardForm();
+                dashboard.Show();
+                this.Hide();
+
+                //bool isValid = ValidateUser(username, password);
+
+                //if (!isValid)
+                //{
+                //    MessageBox.Show("Invalid credentials.");
+                //    return;
+                //}
+                //var dash = new DashboardForm();
+                //dash.Show();
+                //this.Hide();
             }
-            var dash = new DashboardForm();
-            dash.Show();
-            this.Hide();
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
+            }
         }
         private bool ValidateUser(string username, string password)
         {
             return true;
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
