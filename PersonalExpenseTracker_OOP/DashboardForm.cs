@@ -35,7 +35,6 @@ namespace PersonalExpenseTracker_OOP
             LoadRecentTransactions();
         }
 
-        // ✅ FIXED: READ FROM Income & Expense TABLES
         void LoadTotals()
         {
             decimal income = 0;
@@ -63,7 +62,6 @@ namespace PersonalExpenseTracker_OOP
             lblBalance.Text = balance.ToString("N2");
         }
 
-        // ✅ FIXED: COMBINE Income + Expense
         void LoadRecentTransactions()
         {
             using (var conn = OpenConn())
