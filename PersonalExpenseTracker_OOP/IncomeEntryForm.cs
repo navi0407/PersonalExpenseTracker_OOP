@@ -20,6 +20,7 @@ namespace PersonalExpenseTracker_OOP
         public IncomeEntryForm()
         {
             InitializeComponent();
+
         }
         private void IncomeEntryForm_Load(object sender, EventArgs e)
         {
