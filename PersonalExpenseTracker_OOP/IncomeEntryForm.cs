@@ -70,36 +70,44 @@ namespace PersonalExpenseTracker_OOP
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            if (!ValidateAmount(out double amount))
+                return;
+
             using (var conn = new SQLiteConnection(cs))
             {
+                conn.Open();
+                using (var cmd = new SQLiteCommand(
+                    "INSERT INTO Income (Amount, Date, Category, Description) VALUES (@Amount,@Date,@Category,@Description)", conn))
                 {
-                    conn.Open();
-                    using (var cmd = new SQLiteCommand("INSERT INTO Income (Amount, Date, Category, Description) VALUES (@Amount,@Date,@Category,@Description)", conn))
-                    {
-                        cmd.Parameters.AddWithValue("@Amount", Convert.ToDouble(txtAmount.Text));
-                        cmd.Parameters.AddWithValue("@Date", dtpDate.Value.ToString("yyyy-MM-dd"));
-                        cmd.Parameters.AddWithValue("@Category", cmbCategory.Text);
-                        cmd.Parameters.AddWithValue("@Description", txtDescription.Text);
-                        cmd.ExecuteNonQuery();
-                    }
+                    cmd.Parameters.AddWithValue("@Amount", amount);
+                    cmd.Parameters.AddWithValue("@Date", dtpDate.Value.ToString("yyyy-MM-dd"));
+                    cmd.Parameters.AddWithValue("@Category", cmbCategory.Text);
+                    cmd.Parameters.AddWithValue("@Description", txtDescription.Text);
+                    cmd.ExecuteNonQuery();
                 }
-                LoadData();
-                ClearFields();
             }
+
+            LoadData();
+            ClearFields();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (dgvIncome.CurrentRow == null)//kapag walang napili sa datagridview, walang gagawin
+            if (dgvIncome.CurrentRow == null)
                 return;
+
+            if (!ValidateAmount(out double amount))
+                return;
+
             int id = Convert.ToInt32(dgvIncome.CurrentRow.Cells["Id"].Value);
+
             using (var conn = new SQLiteConnection(cs))
             {
                 conn.Open();
-                using (var cmd = new SQLiteCommand("UPDATE Income SET Amount=@Amount, Date=@Date, Category=@Category, " +
-                    "Description=@Description WHERE Id=@Id", conn))
+                using (var cmd = new SQLiteCommand(
+                    "UPDATE Income SET Amount=@Amount, Date=@Date, Category=@Category, Description=@Description WHERE Id=@Id", conn))
                 {
-                    cmd.Parameters.AddWithValue("@Amount", Convert.ToDouble(txtAmount.Text));
+                    cmd.Parameters.AddWithValue("@Amount", amount);
                     cmd.Parameters.AddWithValue("@Date", dtpDate.Value.ToString("yyyy-MM-dd"));
                     cmd.Parameters.AddWithValue("@Category", cmbCategory.Text);
                     cmd.Parameters.AddWithValue("@Description", txtDescription.Text);
@@ -107,8 +115,9 @@ namespace PersonalExpenseTracker_OOP
                     cmd.ExecuteNonQuery();
                 }
             }
-            LoadData();//nire-refresh ang datagridview
-            ClearFields();//nililinis ang input fields
+
+            LoadData();
+            ClearFields();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -151,5 +160,49 @@ namespace PersonalExpenseTracker_OOP
             cmbCategory.Text = row.Cells["Category"].Value.ToString();
             txtDescription.Text = row.Cells["Description"].Value.ToString();
         }
+            private bool ValidateAmount(out double amount)
+        {
+            if (string.IsNullOrWhiteSpace(txtAmount.Text))
+            {
+                MessageBox.Show(
+                    "Amount is required.",
+                    "Input Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                txtAmount.Focus();
+                amount = 0;
+                return false;
+            }
+
+            if (!double.TryParse(txtAmount.Text, out amount))
+            {
+                MessageBox.Show(
+                    "Please enter numbers only for the amount.",
+                    "Invalid Amount",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+                txtAmount.Focus();
+                txtAmount.SelectAll();
+                return false;
+            }
+
+            if (amount <= 0)
+            {
+                MessageBox.Show(
+                    "Amount must be greater than zero.",
+                    "Invalid Amount",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                txtAmount.Focus();
+                amount = 0;
+                return false;
+            }
+
+            return true;
+        }
+
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CategoriesForm));
             lblBalance = new Label();
             label1 = new Label();
             textCName = new TextBox();
@@ -44,9 +45,9 @@
             // 
             lblBalance.AutoSize = true;
             lblBalance.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblBalance.Location = new Point(34, 44);
+            lblBalance.Location = new Point(30, 33);
             lblBalance.Name = "lblBalance";
-            lblBalance.Size = new Size(134, 23);
+            lblBalance.Size = new Size(108, 19);
             lblBalance.TabIndex = 14;
             lblBalance.Text = "Category Name:";
             // 
@@ -54,34 +55,37 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(34, 94);
+            label1.Location = new Point(30, 70);
             label1.Name = "label1";
-            label1.Size = new Size(49, 23);
+            label1.Size = new Size(40, 19);
             label1.TabIndex = 15;
             label1.Text = "Type:";
             // 
             // textCName
             // 
-            textCName.Location = new Point(184, 44);
+            textCName.Location = new Point(161, 33);
+            textCName.Margin = new Padding(3, 2, 3, 2);
             textCName.Name = "textCName";
-            textCName.Size = new Size(235, 27);
+            textCName.Size = new Size(206, 23);
             textCName.TabIndex = 16;
             // 
             // cmbType
             // 
             cmbType.FormattingEnabled = true;
-            cmbType.Location = new Point(101, 94);
+            cmbType.Location = new Point(88, 70);
+            cmbType.Margin = new Padding(3, 2, 3, 2);
             cmbType.Name = "cmbType";
-            cmbType.Size = new Size(318, 28);
+            cmbType.Size = new Size(279, 23);
             cmbType.TabIndex = 17;
             // 
             // dgvCategories
             // 
             dgvCategories.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvCategories.Location = new Point(262, 142);
+            dgvCategories.Location = new Point(229, 106);
+            dgvCategories.Margin = new Padding(3, 2, 3, 2);
             dgvCategories.Name = "dgvCategories";
             dgvCategories.RowHeadersWidth = 51;
-            dgvCategories.Size = new Size(416, 333);
+            dgvCategories.Size = new Size(364, 250);
             dgvCategories.TabIndex = 18;
             dgvCategories.CellClick += dgvCategories_CellClick;
             // 
@@ -94,9 +98,10 @@
             btnAdd.FlatStyle = FlatStyle.Flat;
             btnAdd.Font = new Font("Malgun Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAdd.ForeColor = SystemColors.ControlLightLight;
-            btnAdd.Location = new Point(101, 166);
+            btnAdd.Location = new Point(88, 124);
+            btnAdd.Margin = new Padding(3, 2, 3, 2);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(95, 35);
+            btnAdd.Size = new Size(83, 26);
             btnAdd.TabIndex = 33;
             btnAdd.Text = "Add";
             btnAdd.UseVisualStyleBackColor = false;
@@ -111,9 +116,10 @@
             btnUpdate.FlatStyle = FlatStyle.Flat;
             btnUpdate.Font = new Font("Malgun Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnUpdate.ForeColor = SystemColors.ControlLightLight;
-            btnUpdate.Location = new Point(101, 235);
+            btnUpdate.Location = new Point(88, 176);
+            btnUpdate.Margin = new Padding(3, 2, 3, 2);
             btnUpdate.Name = "btnUpdate";
-            btnUpdate.Size = new Size(95, 35);
+            btnUpdate.Size = new Size(83, 26);
             btnUpdate.TabIndex = 34;
             btnUpdate.Text = "Update";
             btnUpdate.UseVisualStyleBackColor = false;
@@ -128,9 +134,10 @@
             btnDelete.FlatStyle = FlatStyle.Flat;
             btnDelete.Font = new Font("Malgun Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnDelete.ForeColor = SystemColors.ControlLightLight;
-            btnDelete.Location = new Point(101, 308);
+            btnDelete.Location = new Point(88, 231);
+            btnDelete.Margin = new Padding(3, 2, 3, 2);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(95, 35);
+            btnDelete.Size = new Size(83, 26);
             btnDelete.TabIndex = 35;
             btnDelete.Text = "Delete";
             btnDelete.UseVisualStyleBackColor = false;
@@ -145,9 +152,10 @@
             btnClear.FlatStyle = FlatStyle.Flat;
             btnClear.Font = new Font("Malgun Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnClear.ForeColor = SystemColors.ControlLightLight;
-            btnClear.Location = new Point(101, 388);
+            btnClear.Location = new Point(88, 291);
+            btnClear.Margin = new Padding(3, 2, 3, 2);
             btnClear.Name = "btnClear";
-            btnClear.Size = new Size(95, 35);
+            btnClear.Size = new Size(83, 26);
             btnClear.TabIndex = 36;
             btnClear.Text = "Clear";
             btnClear.UseVisualStyleBackColor = false;
@@ -155,9 +163,10 @@
             // 
             // CategoriesForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(712, 511);
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            ClientSize = new Size(623, 383);
             Controls.Add(btnClear);
             Controls.Add(btnDelete);
             Controls.Add(btnUpdate);
@@ -167,6 +176,7 @@
             Controls.Add(textCName);
             Controls.Add(label1);
             Controls.Add(lblBalance);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "CategoriesForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CategoriesForm";

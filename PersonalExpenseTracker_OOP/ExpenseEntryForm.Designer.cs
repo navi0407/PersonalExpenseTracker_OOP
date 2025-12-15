@@ -140,7 +140,7 @@
             dgvExpense.Size = new Size(338, 275);
             dgvExpense.TabIndex = 31;
             dgvExpense.CellClick += dgvExpense_CellClick;
-            dgvExpense.CellContentClick += dgvExpense_CellContentClick;
+            dgvExpense.CellClick += dgvExpense_CellClick;
             // 
             // dtpDate
             // 

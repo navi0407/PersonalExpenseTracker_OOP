@@ -72,36 +72,62 @@ namespace PersonalExpenseTracker_OOP
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            if (!ValidateAmount(out double amount))
+                return;
+
             using (var conn = new SQLiteConnection(cs))
             {
+                conn.Open();
+                using (var cmd = new SQLiteCommand(
+                    "INSERT INTO Expense (Amount, Date, Category, Description) VALUES (@Amount,@Date,@Category,@Description)", conn))
                 {
-                    conn.Open();
-                    using (var cmd = new SQLiteCommand("INSERT INTO Expense (Amount, Date, Category, Description) VALUES (@Amount,@Date,@Category,@Description)", conn))
-                    {
-                        cmd.Parameters.AddWithValue("@Amount", Convert.ToDouble(txtAmount.Text));
-                        cmd.Parameters.AddWithValue("@Date", dtpDate.Value.ToString("yyyy-MM-dd"));
-                        cmd.Parameters.AddWithValue("@Category", cmbCategory.Text);
-                        cmd.Parameters.AddWithValue("@Description", txtDescription.Text);
-                        cmd.ExecuteNonQuery();
-                    }
+                    cmd.Parameters.AddWithValue("@Amount", amount);
+                    cmd.Parameters.AddWithValue("@Date", dtpDate.Value.ToString("yyyy-MM-dd"));
+                    cmd.Parameters.AddWithValue("@Category", cmbCategory.Text);
+                    cmd.Parameters.AddWithValue("@Description", txtDescription.Text);
+                    cmd.ExecuteNonQuery();
                 }
-                LoadData();
-                ClearFields();
             }
+
+            LoadData();
+            ClearFields();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             if (dgvExpense.CurrentRow == null)
+            {
+                MessageBox.Show(
+                    "Please select a record to update.",
+                    "No Selection",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
                 return;
-            int id = Convert.ToInt32(dgvExpense.CurrentRow.Cells["Id"].Value);
+            }
+
+            if (!ValidateAmount(out double amount))
+                return;
+
+            int id;
+            if (!int.TryParse(dgvExpense.CurrentRow.Cells["Id"].Value.ToString(), out id))
+            {
+                MessageBox.Show(
+                    "Invalid record selected.",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+                return;
+            }
+
             using (var conn = new SQLiteConnection(cs))
             {
                 conn.Open();
-                using (var cmd = new SQLiteCommand("UPDATE Expense SET Amount=@Amount, Date=@Date, Category=@Category, " +
-                    "Description=@Description WHERE Id=@Id", conn))
+                using (var cmd = new SQLiteCommand(
+                    "UPDATE Expense SET Amount=@Amount, Date=@Date, Category=@Category, Description=@Description WHERE Id=@Id", conn))
                 {
-                    cmd.Parameters.AddWithValue("@Amount", Convert.ToDouble(txtAmount.Text));
+                    cmd.Parameters.AddWithValue("@Amount", amount);
                     cmd.Parameters.AddWithValue("@Date", dtpDate.Value.ToString("yyyy-MM-dd"));
                     cmd.Parameters.AddWithValue("@Category", cmbCategory.Text);
                     cmd.Parameters.AddWithValue("@Description", txtDescription.Text);
@@ -109,9 +135,11 @@ namespace PersonalExpenseTracker_OOP
                     cmd.ExecuteNonQuery();
                 }
             }
+
             LoadData();
             ClearFields();
         }
+
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
@@ -159,9 +187,54 @@ namespace PersonalExpenseTracker_OOP
 
         }
 
-        private void dgvExpense_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
+        //private void dgvExpense_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        //{
 
+        //}
+
+        private bool ValidateAmount(out double amount)
+        {
+            amount = 0;
+
+            if (string.IsNullOrWhiteSpace(txtAmount.Text))
+            {
+                MessageBox.Show(
+                    "Amount is required.",
+                    "Input Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                txtAmount.Focus();
+                return false;
+            }
+
+            if (!double.TryParse(txtAmount.Text, out amount))
+            {
+                MessageBox.Show(
+                    "Please enter numbers only for the amount.",
+                    "Invalid Amount",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+                txtAmount.Focus();
+                txtAmount.SelectAll();
+                return false;
+            }
+
+            if (amount <= 0)
+            {
+                MessageBox.Show(
+                    "Amount must be greater than zero.",
+                    "Invalid Amount",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                txtAmount.Focus();
+                return false;
+            }
+
+            return true;
         }
+
     }
 }

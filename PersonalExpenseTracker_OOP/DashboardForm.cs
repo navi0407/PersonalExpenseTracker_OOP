@@ -10,41 +10,47 @@ using System.Windows.Forms;
 using PersonalExpenseTracker_OOP;
 using System.Data.SQLite;
 
+
 namespace PersonalExpenseTracker_OOP
 {
     public partial class DashboardForm : Form
     {
         string cs = @"Data Source=BudgetTracker.db;";
+
         public DashboardForm()
         {
             InitializeComponent();
-
         }
+
         SQLiteConnection OpenConn()
         {
             var c = new SQLiteConnection(cs);
             c.Open();
             return c;
         }
+
         private void DashboardForm_Load(object sender, EventArgs e)
         {
-            EnsureTransactionsTableExists();
             LoadTotals();
             LoadRecentTransactions();
         }
+
+        // ✅ FIXED: READ FROM Income & Expense TABLES
         void LoadTotals()
         {
-            decimal income = 0, expense = 0;
+            decimal income = 0;
+            decimal expense = 0;
 
             using (var conn = OpenConn())
             {
                 using (var cmd = new SQLiteCommand(
-                    "SELECT IFNULL(SUM(Amount),0) FROM Transactions WHERE Type='Income';", conn))
+                    "SELECT IFNULL(SUM(Amount), 0) FROM Income;", conn))
                 {
                     income = Convert.ToDecimal(cmd.ExecuteScalar());
                 }
+
                 using (var cmd = new SQLiteCommand(
-                    "SELECT IFNULL(SUM(Amount),0) FROM Transactions WHERE Type='Expense';", conn))
+                    "SELECT IFNULL(SUM(Amount), 0) FROM Expense;", conn))
                 {
                     expense = Convert.ToDecimal(cmd.ExecuteScalar());
                 }
@@ -57,20 +63,30 @@ namespace PersonalExpenseTracker_OOP
             lblBalance.Text = balance.ToString("N2");
         }
 
+        // ✅ FIXED: COMBINE Income + Expense
         void LoadRecentTransactions()
         {
             using (var conn = OpenConn())
-            using (var da = new SQLiteDataAdapter(
-                @"SELECT TransactionID, Type, Amount, Date, Description
-                      FROM Transactions
-                      ORDER BY Date DESC
-                      LIMIT 20;", conn))
             {
-                var dt = new DataTable();
-                da.Fill(dt);
-                dgvRecent.DataSource = dt;
+                string sql = @"
+                    SELECT Id AS TransactionID, 'Income' AS Type, Amount, Date, Description
+                    FROM Income
+                    UNION ALL
+                    SELECT Id AS TransactionID, 'Expense' AS Type, Amount, Date, Description
+                    FROM Expense
+                    ORDER BY Date DESC
+                    LIMIT 20;
+                ";
+
+                using (var da = new SQLiteDataAdapter(sql, conn))
+                {
+                    var dt = new DataTable();
+                    da.Fill(dt);
+                    dgvRecent.DataSource = dt;
+                }
             }
         }
+
         private void btnIncome_Click(object sender, EventArgs e)
         {
             using (var f = new IncomeEntryForm())
@@ -113,21 +129,5 @@ namespace PersonalExpenseTracker_OOP
             var login = new SignInForm();
             login.Show();
         }
-        void EnsureTransactionsTableExists()
-        {
-            using (var conn = OpenConn())
-            using (var cmd = new SQLiteCommand(
-                @"CREATE TABLE IF NOT EXISTS Transactions (
-                    TransactionID INTEGER PRIMARY KEY AUTOINCREMENT,
-                    Type TEXT NOT NULL,
-                    Amount REAL NOT NULL,
-                    Date TEXT NOT NULL,
-                    Description TEXT
-                );", conn))
-            {
-                cmd.ExecuteNonQuery();
-            }
-        }
-
     }
 }
